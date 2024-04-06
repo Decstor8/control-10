@@ -53,7 +53,7 @@ newsRouter.get('/', (_, res: Response) => {
         res.json(newsWithoutMessage);
     });
 });
-newsRouter.get('/:id', (req, res: Response) => {
+newsRouter.get('/:id', (req:Request, res: Response) => {
     const id = req.params.id;
     fs.readFile('db.json', (err: Error, data: string) => {
         if (err) {
@@ -69,7 +69,7 @@ newsRouter.get('/:id', (req, res: Response) => {
         res.json(defainNews);
     });
 });
-newsRouter.delete('/:id', (req, res: Response) => {
+newsRouter.delete('/:id', (req:Request, res: Response) => {
     const id = req.params.id;
     fs.readFile('db.json', (err: Error, data: string) => {
         if (err) {

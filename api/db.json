@@ -1,12 +1,4 @@
 {
-  "news": [
-    {
-      "id": "19abffe3-2040-4e57-a6b2-1313a6ce3734",
-      "image": "images3b48efd5-28ef-48d4-a3b8-78cb65cd1091.jpg",
-      "newsMessage": "tes",
-      "newsTitle": "ts",
-      "createdAt": "2024-04-06T08:59:18.197Z"
-    }
-  ],
+  "news": [],
   "comments": []
 }
