@@ -1,4 +1,19 @@
 {
-  "news": [],
-  "comments": []
+  "news": [
+    {
+      "id": "c3624a92-1ad9-4fe7-bb4f-d80f247b7c73",
+      "image": "images2d26e5c0-850a-477d-8cda-19e58bdee6fe.jpg",
+      "newsMessage": "School Bishkek малдыбаева 7.1",
+      "newsTitle": "Attractor",
+      "createdAt": "2024-04-06T10:13:11.111Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "e161e4f9-b128-44ef-b99f-5f9c4fe3fa6d",
+      "author": "Alex",
+      "message": "test",
+      "newsId": "c3624a92-1ad9-4fe7-bb4f-d80f247b7c73"
+    }
+  ]
 }
