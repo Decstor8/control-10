@@ -1,4 +1,3 @@
-import { newsType } from "../types";
 import { instance } from "./instantce";
 
 export const newsApi = {
@@ -11,7 +10,7 @@ export const newsApi = {
     deleteNews : (id: string) => {
         return instance.delete(`news/${id}`);
     },
-    createNews : (data: newsType) => {
+    createNews : (data: FormData) => {
         return instance.post(`news/`, data);
     },
 };

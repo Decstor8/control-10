@@ -4,7 +4,7 @@ import { newsApi } from "../../Api/newsApi";
 import { commentsApi } from "../../Api/commentsApi";
 
 export const getAllNews = createAsyncThunk<void>(
-  "meassges/getAllNews",
+  "slice/getAllNews",
   async (_, { dispatch }) => {
     try {
       const data = await newsApi.getAllNews();
@@ -17,7 +17,7 @@ export const getAllNews = createAsyncThunk<void>(
   },
 );
 export const getAllComments = createAsyncThunk<void, string>(
-  "meassges/getAllComments",
+  "slice/getAllComments",
   async (id, { dispatch }) => {
     try {
       const data = await commentsApi.getAllComments({ news_id: id });
@@ -29,7 +29,7 @@ export const getAllComments = createAsyncThunk<void, string>(
   },
 );
 export const deleteComment = createAsyncThunk<void, string>(
-  "meassges/deleteComment",
+  "slice/deleteComment",
   async (id, { dispatch }) => {
     try {
       await commentsApi.deleteComment(id);
@@ -40,7 +40,7 @@ export const deleteComment = createAsyncThunk<void, string>(
   },
 );
 export const getDefineNews = createAsyncThunk<void, string>(
-  "meassges/getDefineNews",
+  "slice/getDefineNews",
   async (id, { dispatch }) => {
     try {
       const data = await newsApi.getDefineNews(id);
@@ -53,7 +53,7 @@ export const getDefineNews = createAsyncThunk<void, string>(
   },
 );
 export const deleteNews = createAsyncThunk<void, string>(
-  "meassges/deleteNews",
+  "slice/deleteNews",
   async (id, { dispatch }) => {
     try {
       await newsApi.deleteNews(id);
@@ -64,10 +64,21 @@ export const deleteNews = createAsyncThunk<void, string>(
   },
 );
 export const createComment = createAsyncThunk<void, commentsTypeParams>(
-  "meassges/createComment",
+  "slice/createComment",
   async ({author, message,newsId}, { dispatch }) => {
     try {
       await commentsApi.createComments({author, message,newsId});
+    } catch (error) {
+      console.log(error);
+      dispatch(toggleErorr(true));
+    };
+  },
+);
+export const createNews = createAsyncThunk<void, FormData>(
+  "slice/createNews",
+  async (FormData, { dispatch }) => {
+    try {
+      await newsApi.createNews(FormData);
     } catch (error) {
       console.log(error);
       dispatch(toggleErorr(true));
@@ -79,7 +90,7 @@ export interface messagesState {
   comments: Array<newsComments>;
   error: boolean;
   defineNews: null | newsType;
-}
+};
 
 const initialState: messagesState = {
   news: [],
@@ -107,6 +118,5 @@ export const slice = createSlice({
   },
 });
 
-export const { setCommpents, setNews, toggleErorr, setDefineNews } =
-  slice.actions;
+export const { setCommpents, setNews, toggleErorr, setDefineNews } = slice.actions;
 export default slice.reducer;

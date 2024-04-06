@@ -17,6 +17,11 @@ export interface newsComments {
     author: string | undefined,
     message: string,
 } 
+export interface newsNewsParams {
+    newsTitle: string,
+    newsMessage: string,
+    image: File | null,
+} 
 export interface commentsParams { 
     news_id:string
 }
