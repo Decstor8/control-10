@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from "../store/store";
 import { createComment, getAllComments } from "../store/slice/slice";
+import { Button, TextField } from '@mui/material';
 type CommentsType = { 
     idComment: string;
 };
@@ -17,10 +18,23 @@ const AddComments:React.FC<CommentsType> = ({idComment}) => {
         setMessage('');
     };
   return (
-    <form onSubmit={onHanldeSubmit}>
-      <input value={name} onChange={(e) => setName(e.target.value)}></input>
-      <textarea value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
-      <button>Sabmut</button>
+    <form onSubmit={onHanldeSubmit} style={{marginTop: '20px', borderTop: '2px solid black', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+      <TextField
+        label="Name"
+        variant="outlined"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <TextField
+        label="Message"
+        variant="outlined"
+        multiline
+        rows={4}
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        required
+      />
+      <Button type="submit" variant="contained" color='secondary'>Отправить</Button>
     </form>
   );
 };

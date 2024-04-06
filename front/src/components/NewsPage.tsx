@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { deleteNews, getAllNews } from "../store/slice/slice";
 import { Link } from "react-router-dom";
+import { Button, Card, CardContent, CardMedia, Grid} from "@mui/material";
+import dayjs from "dayjs";
 
 function NewsPage () {
     const dispatch = useAppDispatch();
@@ -14,18 +16,34 @@ function NewsPage () {
         dispatch(getAllNews());
     };
     return ( 
-        <> 
-            { 
-                news?.map((i,key) => <div key={key}>
-                    <img src={i.image ? `http://localhost:8000/${i.image}` : 'https://static.thenounproject.com/png/504708-200.png'} alt="" />
-                    <h1>{i.newsTitle}</h1>
-                    <h1>{i.createdAt}</h1> 
-                    <Link to={`/news/${i.id}`}>Read All</Link>
-                    <button onClick={() => onHanldeDelete(i.id)}>Delete</button>
+        <>
+        <Button variant="contained" color="primary" component={Link} to={'/create/'} style={{margin: '10px'}}>Добавить новость</Button>
 
-                </div>)
-            }
-        </>
+        <Grid container spacing={2}>
+    {news?.map((i, key) => (
+      <Grid item key={key}>
+        <Card>
+          <CardMedia
+            component="img"
+            height="140"
+            image={i.image ? `http://localhost:8000/${i.image}` : 'https://static.thenounproject.com/png/504708-200.png'}
+            alt='Изображения новостей для новости'
+          />
+          <CardContent>
+            <h2>{i.newsTitle}</h2>
+            <p>{dayjs(i.createdAt).format('DD MMM YYYY, HH:mm')}</p>
+            <Button variant="contained" color="primary" component={Link} to={`/news/${i.id}`} style={{ marginRight: '10px' }}>
+              Подробнее
+            </Button>
+            <Button variant="contained" color="error" onClick={() => onHanldeDelete(i.id)}>
+              Удалить
+            </Button>
+          </CardContent>
+        </Card>
+      </Grid>
+    ))}
+  </Grid>
+      </>
     );
 };
 

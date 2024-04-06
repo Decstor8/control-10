@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppDispatch } from '../store/store';
 import { createNews } from '../store/slice/slice';
+import { Button, TextField } from '@mui/material';
 
 const AddNewsPage = () => {
     const dispatch = useAppDispatch();
@@ -12,10 +13,36 @@ const AddNewsPage = () => {
 
   return (
     <form onSubmit={onHandleSubmit}>
-      <input name='newsTitle' required></input>
-      <textarea name='newsMessage' required></textarea>
-      <input name='file' type='file'></input>
-      <button>Submit</button>
+         <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        name="newsTitle"
+        label="Заголовок новости"
+        type="text"
+      />
+      <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        name="newsMessage"
+        label="Текст новости"
+        rows={4}
+      />
+      <input
+        type="file"
+        name="file"
+      />
+      <Button
+        type="submit"
+        fullWidth
+        variant="contained"
+        color="primary"
+      >
+        Отправить
+      </Button>
     </form>
   )
 };

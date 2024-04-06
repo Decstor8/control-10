@@ -6,6 +6,13 @@
       "newsMessage": "School Bishkek малдыбаева 7.1",
       "newsTitle": "Attractor",
       "createdAt": "2024-04-06T10:13:11.111Z"
+    },
+    {
+      "id": "66b657b0-bcec-442b-b6f6-64addd8cb684",
+      "image": "images3c127ecb-89e8-46b6-9dd9-de1a41b1ca20.png",
+      "newsMessage": "information",
+      "newsTitle": "CyberPunk 2077",
+      "createdAt": "2024-04-06T12:53:40.840Z"
     }
   ],
   "comments": [
@@ -14,6 +21,18 @@
       "author": "Alex",
       "message": "test",
       "newsId": "c3624a92-1ad9-4fe7-bb4f-d80f247b7c73"
+    },
+    {
+      "id": "8484f40c-4dc7-4fef-84cc-4444539f6a60",
+      "author": "Decstor",
+      "message": "No",
+      "newsId": "c3624a92-1ad9-4fe7-bb4f-d80f247b7c73"
+    },
+    {
+      "id": "87f67051-e74a-43bd-b5c0-cd169ca65400",
+      "author": "2024 years",
+      "message": "Game 2077",
+      "newsId": "66b657b0-bcec-442b-b6f6-64addd8cb684"
     }
   ]
 }
